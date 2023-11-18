@@ -1,0 +1,42 @@
+// vs code
+
+import java.util.Arrays;
+
+public class addTwoNumbers {
+    public static void main(String args[]) {
+        int[] array1 = { 2, 4, 3 };
+        int[] array2 = { 5, 6, 4 };
+
+        String[] lastResult = addTwoNum(array1, array2);
+        System.out.println(Arrays.toString(lastResult));
+    }
+
+    public static String[] addTwoNum(int[] arr1, int[] arr2) {
+        int finalNum = 0;
+        int arr1Num = 0;
+        int arr2Num = 0;
+
+        for (int i = 0; i < arr1.length; i++) {
+            arr1Num += arr1[i] * Math.pow(10, i);
+        }
+
+        for (int i = 0; i < arr2.length; i++) {
+            arr2Num += arr2[i] * Math.pow(10, i);
+        }
+
+        finalNum = arr1Num + arr2Num;
+        System.out.println(finalNum);
+        System.out.println(arr1Num);
+        System.out.println(arr2Num);
+
+        String finalNumStr = String.valueOf(finalNum);
+        String[] result = new String[finalNumStr.length()];
+
+        for (int i = 0; i < finalNumStr.length(); i++) {
+            result[i] = String.valueOf(finalNumStr.charAt(finalNumStr.length() - i - 1));
+        }
+        return result;
+
+    }
+
+}
