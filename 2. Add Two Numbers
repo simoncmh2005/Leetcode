@@ -77,8 +77,12 @@ class Solution {
             //after third iteration, [0] -> [7] -> [0] -> [8] -> null.
         }
 
-        ListNode result = dummyHead.next;
+        ListNode result = dummyHead.next; 
+        //[0] -> [7] -> [0] -> [8] -> null.
+        //        ^dummyhead.next
         dummyHead.next = null;
+        //  resulting linked list would be [7] -> [0] -> [8] -> null.
+        //                                                        ^dummyhead.next
         return result;
     }
 }
