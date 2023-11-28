@@ -40,3 +40,45 @@ public class addTwoNumbers {
     }
 
 }
+
+//Leetcode
+
+//input
+//l1 = [2,4,3], l2 = [5,6,4]
+
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummyHead = new ListNode(0); 
+        //--this creates a node dummyHead : [0] -> null
+        //                                   ^result pointing to this node
+        ListNode tail = dummyHead;
+        int carry = 0;
+
+        while (l1 != null || l2 != null || carry != 0) { //if l1 or l2 or carry is not null, then loop 
+            int digit1 = (l1 != null) ? l1.val : 0;  // if l1 is not null,digit = l1.val digit1 = 2
+            int digit2 = (l2 != null) ? l2.val : 0;                                      //digit2 = 5
+
+            int sum = digit1 + digit2 + carry;    //sum = 2 + 5 = 7
+            int digit = sum % 10;                 //digit = 7
+            carry = sum / 10;                     //carry = 0
+
+            ListNode newNode = new ListNode(digit); 
+            //--this creates a node dummyHead : [7] -> null
+            //                                   ^result pointing to this node
+            tail.next = newNode;
+            //--this sets tail.next to a new node with value 7 : [0] ->  [7] -> null
+            //                                                    ^tail   ^tail.next
+            tail = tail.next;
+            //--this moves result over to '7' node : [0] -> [7] -> null
+            //                                               ^tail ^tail.next
+            l1 = (l1 != null) ? l1.next : null; //l1 = l1.next = 4
+            l2 = (l2 != null) ? l2.next : null; //l1 = l1.next = 6
+
+            //after third iteration, [0] -> [7] -> [0] -> [8] -> null.
+        }
+
+        ListNode result = dummyHead.next;
+        dummyHead.next = null;
+        return result;
+    }
+}
