@@ -1,4 +1,4 @@
-let s = "abcabcbb"
+let s = "aabaab!bb"
 let word = s.split("");
 let resultArray = [];
 let lengthOfArray = 0;
@@ -6,18 +6,19 @@ let maximumLength = 0;
 
 for(let i=0;i<word.length;i++){ 
     let found = false;
+    let spliceIndex = 0;
     
     for(let j=0;j<resultArray.length;j++){
         if(resultArray[j]===word[i]){ 
             found = true;
+            spliceIndex = j;
             break;
         }
     }
     
     if (found){
-        lengthOfArray = 1;
-        resultArray = [];
-        resultArray.push(word[i]);
+        resultArray.splice(0,spliceIndex);
+        lengthOfArray = resultArray.length;
     }else{
         resultArray.push(word[i]);
         lengthOfArray++;
@@ -26,8 +27,12 @@ for(let i=0;i<word.length;i++){
     if(lengthOfArray > maximumLength){
         maximumLength = lengthOfArray;
     }
+    
+    console.log(lengthOfArray)
+    console.log(resultArray[0])
+    console.log(found)
 }
-console.log(maximumLength);
+console.log("Final : " + maximumLength);
 
 /**
  * @param {string} s
