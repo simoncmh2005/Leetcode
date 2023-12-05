@@ -17,7 +17,7 @@ for(let i=0;i<word.length;i++){
     }
     
     if (found){
-        resultArray.splice(0,spliceIndex);
+        resultArray.splice(0,spliceIndex+1);
         lengthOfArray = resultArray.length;
     }else{
         resultArray.push(word[i]);
@@ -29,7 +29,9 @@ for(let i=0;i<word.length;i++){
     }
     
     console.log(lengthOfArray)
-    console.log(resultArray[0])
+    for(let j=0;j<resultArray.length;j++){
+        console.log(resultArray[j])
+    }
     console.log(found)
 }
 console.log("Final : " + maximumLength);
