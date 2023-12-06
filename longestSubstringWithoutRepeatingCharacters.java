@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-
-class longestSubstringWithoutRepeatingCharacters {
+class Solution {
     public int lengthOfLongestSubstring(String s) {
         String [] word = s.split("");
         // String[] resultArray = new String[0];
@@ -9,6 +6,10 @@ class longestSubstringWithoutRepeatingCharacters {
         List<String> resultArray = new ArrayList<>();
         int lengthOfArray = 0;
         int maximumLength = 0;
+
+        if (s.length() == 0) {
+            return 0;
+        }
 
         for(int i=0;i<word.length;i++){ 
             boolean found = false;
@@ -35,12 +36,5 @@ class longestSubstringWithoutRepeatingCharacters {
             }
         }
         return(maximumLength);
-    }
-
-    public static void main (String args[]){
-        String s = "ppwkew";
-        longestSubstringWithoutRepeatingCharacters demo = new longestSubstringWithoutRepeatingCharacters();
-        int result = demo.lengthOfLongestSubstring(s);
-        System.out.println("Length of longest substring without repeating characters: " + result);
     }
 }
