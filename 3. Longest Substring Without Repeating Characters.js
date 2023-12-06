@@ -18,12 +18,12 @@ for(let i=0;i<word.length;i++){
     
     if (found){
         resultArray.splice(0,spliceIndex+1);
+        resultArray.push(word[i]);
         lengthOfArray = resultArray.length;
     }else{
         resultArray.push(word[i]);
         lengthOfArray++;
     }
-    
     if(lengthOfArray > maximumLength){
         maximumLength = lengthOfArray;
     }
@@ -58,7 +58,8 @@ var lengthOfLongestSubstring = function(s) {
         }
         
         if (found){
-            resultArray.splice(0,spliceIndex);
+        resultArray.splice(0,spliceIndex+1);
+        resultArray.push(word[i]);
             lengthOfArray = resultArray.length;
         }else{
             resultArray.push(word[i]);
