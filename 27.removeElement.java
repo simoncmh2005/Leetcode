@@ -1,3 +1,5 @@
+//vs code
+/*
 public class removeElement{
     public static int removeElement(int[] nums, int val) {
         int index = 0;
@@ -16,3 +18,18 @@ public class removeElement{
         System.out.println(removeElement(nums1,val1));
     }
 }
+*/
+
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int index = 0;
+        for(int i = 0;i<nums.length;i++){
+            if(nums[i]!=val){
+                nums[index] = nums [i];
+                index++;
+            }
+        }
+        return index;
+    }
+}
+
