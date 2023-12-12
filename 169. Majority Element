@@ -1,0 +1,20 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        int index = 0;
+        int times = nums.length/2;
+        int result = 0;
+        for (int j = 0;j<nums.length;j++){
+            index = 0;
+            var thisNum = nums[j]; 
+            for(int i = 0;i<nums.length;i++){
+                if(nums[i]==thisNum){
+                    index++;
+                }
+                if(index>times){
+                    return result = nums[j];
+                }
+            }
+        }
+        return result;
+    }
+}
