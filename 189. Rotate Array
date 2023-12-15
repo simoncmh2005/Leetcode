@@ -1,0 +1,15 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int[] result = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            int sequence = (i + k) % nums.length;
+            result[sequence] = nums[i];
+        }
+
+        // Copy the rotated array back to the original array
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = result[i];
+        }
+    }
+}
