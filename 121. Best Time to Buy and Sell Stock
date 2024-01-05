@@ -25,3 +25,24 @@ class Solution {
         return max_profit;
     }
 }
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int maximumProfit = 0;
+        int currentPrice = prices[0];
+        int profit = 0;
+        for(int i=1;i<prices.length;i++){
+            if(prices[i]<=currentPrice){
+                currentPrice = prices[i];
+            }else{
+                profit = prices[i] - currentPrice;
+            }
+
+            if(profit > maximumProfit){
+                maximumProfit = profit;
+            }
+        }
+
+        return maximumProfit;
+    }
+}
