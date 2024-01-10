@@ -1,0 +1,21 @@
+class Solution {
+    public boolean canJump(int[] nums) {
+       int reachable = 0;
+       for(int i = 0; i < nums.length; i ++) {
+           if(i > reachable) return false;
+           reachable = Math.max(reachable, i + nums[i]);
+       } 
+       return true;
+    }
+}
+
+// when i = 0, 
+// reachable = Math.max(0,2) 
+// when i = 1, 
+// reachable = Math.max(2,4)
+// when i = 2, 
+// reachable = Math.max(4,3)
+// when i = 3, 
+// reachable = Math.max(4,4)
+// when i = 4, 
+// reachable = Math.max(4,8)
