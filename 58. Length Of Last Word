@@ -1,0 +1,10 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+    const pattern = /\w+/g;
+    const result = s.match(pattern);
+    const lastWord = result[result.length - 1];
+    return lastWord.length;
+};
