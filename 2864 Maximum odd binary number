@@ -1,0 +1,27 @@
+class Solution {
+    public String maximumOddBinaryNumber(String s) {
+        int zero = 0;
+        int one = 0;
+        String newString = "";
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='0'){
+                zero++;
+            }else if(s.charAt(i)=='1'){
+                one++;
+            }
+        }
+
+        for(int i=0;i<one-1;i++){
+            newString += "1";
+        }
+
+        for(int i=0;i<zero;i++){
+            newString += "0";
+        }
+        
+        newString += "1";
+
+        return newString;
+
+    }
+}
