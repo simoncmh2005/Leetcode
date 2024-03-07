@@ -1,0 +1,30 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+
+        char [] sss = s.toCharArray();
+        char [] ttt = t.toCharArray();
+
+        Map<Character, Integer> sOcc = new HashMap <Character, Integer> ();
+        Map<Character, Integer> tOcc = new HashMap <Character, Integer> ();
+
+        for(int i =0;i<s.length();i++){
+            char sChar = sss[i];
+            char tChar = ttt[i];
+
+            if(sOcc.containsKey(sChar)&&tOcc.containsKey(tChar)){
+                if(!sOcc.get(sChar).equals(tOcc.get(tChar))){
+                    return false;
+                }
+            }else if((!sOcc.containsKey(sChar)&&tOcc.containsKey(tChar))||
+                    (sOcc.containsKey(sChar)&&!tOcc.containsKey(tChar))){
+                    return false;
+            }else{
+                sOcc.put(sChar,i);
+                tOcc.put(tChar,i);
+            }
+        }
+        return true;
+    }
+}
+
+https://allenhsieh1992.com/leetcode/easy/205_isomorphic_strings/
