@@ -1,4 +1,4 @@
-Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+/*Given a string s, return true if the s can be palindrome after deleting at most one character from it.
 
  
 
@@ -20,7 +20,7 @@ Output: false
 Constraints:
 
 1 <= s.length <= 105
-s consists of lowercase English letters.
+s consists of lowercase English letters. */
 
 class Solution {
     public boolean validPalindrome(String s) {
