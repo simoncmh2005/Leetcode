@@ -1,0 +1,32 @@
+class Solution {
+    public int reverse(int x) {
+        // boolean negative = false;
+        // if(x<0){
+        //     negative = true;
+        // }
+        boolean negative = (x < 0) ? true : false;
+        if(x == -2147483648){
+            return 0;
+        }
+        x = Math.abs(x);
+        //x = 45060 output = 06054
+        int length = (int) (Math.log10(x));
+        long sum = 0;
+        for(int i = length;i>=0;i--){
+            long number = 0;
+            number = (long)((x / (Math.pow(10, i))) % 10);
+            number = number * (long)((Math.pow(10, length - i)));
+            sum += number;
+        }
+        if (sum>2147483647||sum<-2147483648){
+            return 0;
+        }
+        if (negative){
+            sum = sum * (-1);
+            return (int)sum;
+        }else{
+            return (int)sum;
+        }
+
+    }
+}
