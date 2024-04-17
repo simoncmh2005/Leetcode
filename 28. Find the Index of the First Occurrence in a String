@@ -31,3 +31,11 @@ var strStr = function(haystack, needle) {
     let index = haystack.indexOf(needle);
     return index;
 };
+
+java 
+
+class Solution {
+    public int strStr(String haystack, String needle) {
+        return haystack.indexOf(needle);
+    }
+}
