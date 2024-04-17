@@ -41,9 +41,33 @@ class Solution {
 
 class Solution {
         public int numIdenticalPairs(int[] nums) {
-        int ans = 0, cnt[] = new int[101];
+        int ans = 0
+        cnt[] = new int[101]; // since the number cannot greater than 100. 
         for (int i: nums) {
-            ans += cnt[i]++;
+            ans += cnt[i]++; //Input: nums = [4,5,6,4,4,6]
+        }
+        return ans;
+    }
+}
+//Input: nums = [4,5,6,4,4,6]
+//The first element is 4. Since cnt[4] is initially 0, ans is incremented by cnt[4]++, resulting in ans = 0 + 0 = 0. The cnt[4] is then incremented to 1.
+
+//The second element is 5. Since cnt[5] is initially 0, ans remains unchanged at 0. The cnt[5] is incremented to 1.
+
+//The third element is 6. Since cnt[6] is initially 0, ans remains unchanged at 0. The cnt[6] is incremented to 1.
+
+//The fourth element is 4. Now, cnt[4] is 1. So, ans is incremented by cnt[4]++, resulting in ans = 0 + 1 = 1. The cnt[4] is then incremented to 2.
+
+//The fifth element is 4. Now, cnt[4] is 2. ans is incremented by cnt[4]++, resulting in ans = 1 + 2 = 3. The cnt[4] is then incremented to 3.
+
+//The sixth element is 6. Now, cnt[6] is 1. ans is incremented by cnt[6]++, resulting in ans = 3 + 1 = 4. The cnt[6] is incremented to 2.
+
+class Solution {
+        public int numIdenticalPairs(int[] nums) {
+        int ans = 0, cnt[] = new int[101];
+        for (int i=0;i<nums.length;i++) {
+            ans += cnt[nums[i]];
+            cnt[nums[i]]++;
         }
         return ans;
     }
