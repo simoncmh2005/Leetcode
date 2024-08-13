@@ -52,3 +52,30 @@ class Solution {
         return new String(newArray,0,nextIndex); 
     }
 }
+public class RemovingStars {
+
+  public String removeStars(String s) {
+    char[] newArray = new char[s.length()];
+    int nextIndex = 0;
+    for (char c : s.toCharArray()) {
+      if (c == '*') {
+        if (nextIndex > 0) {
+          nextIndex--;
+        }
+      } else {
+        newArray[nextIndex] = c;
+        nextIndex++;
+      }
+    }
+
+    return new String(newArray, 0, nextIndex);
+  }
+
+  public static void main(String args[]) {
+
+    RemovingStars solution = new RemovingStars();
+    System.out.println(solution.removeStars("leet**cod*e"));
+
+  }
+}
+
